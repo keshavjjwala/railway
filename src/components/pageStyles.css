@@ -1,0 +1,817 @@
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Open+Sans:wght@400;600&display=swap");
+
+.find-trains-page {
+  background-color: #fff5f0;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 40px 50px;
+  min-height: 100vh;
+}
+
+.find-trains-page h2 {
+  font-size: 22px;
+  color: #2b2552;
+  margin-bottom: 24px;
+  font-style: italic;
+  border-bottom: 2px solid #ffcfcf;
+  padding-bottom: 10px;
+}
+
+.train-card {
+  background: white;
+  border-radius: 14px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  margin-bottom: 22px;
+  overflow: hidden;
+  border-left: 5px solid #2b2552;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.train-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.14);
+}
+
+.train-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #2b2552;
+  padding: 12px 20px;
+  color: white;
+}
+
+.train-name {
+  font-size: 15px;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.03em;
+}
+
+.train-runs {
+  font-size: 13px;
+  color: #ffcfcf;
+  text-align: center;
+}
+
+.train-runs span {
+  font-weight: bold;
+  color: white;
+}
+
+.train-schedule-link {
+  font-size: 13px;
+  color: #ffcfcf;
+  font-style: italic;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.train-journey {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid #f0e8e8;
+}
+
+.station {
+  font-size: 15px;
+  color: #333;
+}
+
+.station strong {
+  display: block;
+  font-size: 17px;
+  color: #2b2552;
+}
+
+.duration {
+  text-align: center;
+  font-size: 13px;
+  color: #999;
+  position: relative;
+  flex: 1;
+  padding: 0 20px;
+}
+
+.duration::before,
+.duration::after {
+  content: "";
+  display: block;
+  height: 2px;
+  background: #ddd;
+  width: 35%;
+  position: absolute;
+  top: 50%;
+}
+
+.duration::before {
+  left: 0;
+}
+
+.duration::after {
+  right: 0;
+}
+
+.duration span {
+  background: white;
+  padding: 0 8px;
+  font-weight: bold;
+  color: #555;
+}
+
+.train-classes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 14px 20px;
+  border-bottom: 1px solid #f0e8e8;
+}
+
+.class-btn {
+  background-color: #fff5f0;
+  border: 2px solid #ffcfcf;
+  color: #2b2552;
+  padding: 7px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.class-btn:hover {
+  background-color: #ffcfcf;
+  border-color: #c5223a;
+}
+
+.active-class {
+  background-color: #ffcfcf;
+  border-color: #c5223a;
+}
+
+.seat-selector {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 20px;
+  flex-wrap: wrap;
+  border-bottom: 1px solid #f0e8e8;
+}
+
+.seat-label {
+  color: #2b2552;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.seat-btn {
+  background-color: #fff5f0;
+  border: 1px solid #ffcfcf;
+  color: #2b2552;
+  width: 30px;
+  height: 30px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.seat-active {
+  background-color: #2b2552;
+  color: white;
+  border-color: #2b2552;
+}
+
+.fare-text {
+  margin-left: auto;
+  color: #2b2552;
+  font-size: 13px;
+  font-weight: bold;
+}
+
+.train-footer {
+  display: flex;
+  justify-content: flex-end;
+  padding: 12px 20px;
+  background-color: #fafafa;
+}
+
+.btn-book {
+  background-color: #2b2552;
+  color: white;
+  border: none;
+  padding: 10px 28px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  letter-spacing: 0.04em;
+  transition: background 0.2s;
+}
+
+.btn-book:hover {
+  background-color: #3d3570;
+}
+
+.back-btn,
+.back-home-btn {
+  background-color: #2b2552;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.payment-page {
+  background-color: #fff5f0;
+  font-family: Georgia, "Times New Roman", serif;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.payment-card {
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 40px 50px;
+  width: 420px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.payment-card h1 {
+  font-size: 28px;
+  color: #2b2552;
+  margin-bottom: 20px;
+  border-bottom: 3px solid #ddffb2;
+  padding-bottom: 14px;
+}
+
+.booking-summary {
+  background-color: #fff5f0;
+  border-radius: 8px;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border: 1px solid #ece2e2;
+}
+
+.booking-summary p {
+  margin-bottom: 4px;
+  font-size: 13px;
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+  border: 2px solid #e8e8e8;
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s;
+}
+
+.option:hover {
+  border-color: #2b2552;
+  background: #f7f5ff;
+}
+
+.option input[type="radio"] {
+  accent-color: #2b2552;
+  width: 18px;
+  height: 18px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.option .sub {
+  font-size: 12px;
+  color: #999;
+  font-weight: normal;
+  display: block;
+  margin-top: 2px;
+}
+
+.payment-card button[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background-color: #2b2552;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 16px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  letter-spacing: 0.05em;
+  transition: background 0.2s;
+}
+
+.payment-card button[type="submit"]:hover {
+  background-color: #3d3570;
+}
+
+.confirmation-text {
+  margin-top: 12px;
+  color: #2b2552;
+  font-weight: bold;
+  font-size: 13px;
+}
+
+.meals-page {
+  background-color: #fff5f0;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 40px 60px;
+  min-height: 100vh;
+}
+
+.meals-page h1 {
+  text-align: center;
+  font-size: 34px;
+  color: #2b2552;
+  font-style: italic;
+  margin: 36px 0 20px;
+  letter-spacing: 1px;
+}
+
+.meals-page h1:first-child {
+  margin-top: 0;
+}
+
+.meals-page table {
+  width: 90%;
+  margin: 0 auto 40px;
+  border-collapse: separate;
+  border-spacing: 0 6px;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+}
+
+.meals-page thead tr {
+  background-color: #c5223a;
+}
+
+.meals-page thead th {
+  color: white;
+  padding: 18px;
+  font-size: 15px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  border: none;
+}
+
+.meals-page tbody tr:nth-child(odd) {
+  background-color: #ffd7ee;
+}
+
+.meals-page tbody tr:nth-child(even) {
+  background-color: #edffd7;
+}
+
+.meals-page tbody tr:hover {
+  filter: brightness(0.94);
+}
+
+.meals-page tbody td {
+  padding: 14px 18px;
+  text-align: center;
+  font-size: 15px;
+  color: #333;
+  border: none;
+  vertical-align: middle;
+}
+
+.price-cell {
+  font-weight: bold;
+  font-size: 16px;
+  color: #2b2552;
+}
+
+.price-cell span {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.btn-order {
+  background-color: #2b2552;
+  color: white;
+  border: none;
+  padding: 8px 18px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+}
+
+.btn-order:hover {
+  background-color: #3d3570;
+}
+
+.section-divider {
+  width: 90%;
+  margin: 0 auto 6px;
+  border: none;
+  border-top: 2px dashed #c9996a;
+}
+
+.holiday-page {
+  background-color: #fff5f0;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 40px 60px;
+  min-height: 100vh;
+}
+
+.holiday-page h1 {
+  text-align: center;
+  font-size: 38px;
+  color: #2b2552;
+  font-style: italic;
+  margin-bottom: 36px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #2b2552;
+  padding-bottom: 14px;
+}
+
+.holiday-page .package-card {
+  background: #ffffff;
+  border-radius: 14px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+  margin-bottom: 28px;
+  display: flex;
+  overflow: hidden;
+}
+
+.holiday-page .pkg-image {
+  width: 220px;
+  min-width: 220px;
+  object-fit: cover;
+}
+
+.holiday-page .pkg-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px 28px;
+  flex: 1;
+}
+
+.holiday-page .pkg-title {
+  font-size: 18px;
+  font-weight: bold;
+  color: #2b2552;
+  margin-bottom: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  border-left: 4px solid #ffcfcf;
+  padding-left: 12px;
+}
+
+.holiday-page .pkg-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px 20px;
+  font-size: 14px;
+  color: #444;
+  margin-bottom: 16px;
+}
+
+.holiday-page .pkg-details .label {
+  font-weight: bold;
+  color: #2b2552;
+}
+
+.holiday-page .pkg-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #ffe0e0;
+  padding-top: 14px;
+}
+
+.holiday-page .pkg-price {
+  font-size: 22px;
+  font-weight: bold;
+  color: #2b2552;
+}
+
+.holiday-page .pkg-price small {
+  display: block;
+  font-size: 12px;
+  font-weight: normal;
+  color: #999;
+}
+
+.holiday-page .pkg-inclusions {
+  font-size: 12px;
+  color: #888;
+  font-style: italic;
+}
+
+.service-page {
+  background-color: #fff5f0;
+  font-family: Georgia, "Times New Roman", serif;
+  padding: 40px 50px;
+  min-height: 100vh;
+}
+
+.service-page h1 {
+  font-size: 32px;
+  color: #2b2552;
+  font-style: italic;
+  margin-bottom: 12px;
+  border-bottom: 3px solid #2b2552;
+  padding-bottom: 10px;
+  display: inline-block;
+}
+
+.service-page .note {
+  margin: 14px 0 28px;
+  font-size: 14px;
+  color: #555;
+  background: white;
+  border-left: 4px solid #c5223a;
+  padding: 10px 16px;
+  border-radius: 6px;
+  max-width: 770px;
+}
+
+.service-page .note strong {
+  color: #c5223a;
+  font-style: italic;
+  margin-right: 6px;
+}
+
+.service-page table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.13);
+}
+
+.service-page thead tr {
+  background-color: #2b2552;
+}
+
+.service-page thead th {
+  color: white;
+  padding: 16px 12px;
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border: none;
+  text-align: center;
+}
+
+.service-page tbody tr:nth-child(odd) {
+  background-color: #ffe4e4;
+}
+
+.service-page tbody tr:nth-child(even) {
+  background-color: #ffffff;
+}
+
+.service-page tbody td {
+  padding: 14px 12px;
+  font-size: 14px;
+  color: #333;
+  text-align: center;
+  border: none;
+  border-bottom: 1px solid #f0d0d0;
+}
+
+.contact-page {
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Open Sans", sans-serif;
+  background: linear-gradient(135deg, #ffe4e4 0%, #ffcfcf 50%, #ffd6c2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.contact-wrapper {
+  width: 90%;
+  max-width: 680px;
+  text-align: center;
+}
+
+.contact-wrapper h1 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  color: #2b2552;
+  margin-bottom: 8px;
+}
+
+.contact-wrapper .subtitle {
+  color: #7a6a6a;
+  font-size: 15px;
+  margin-bottom: 48px;
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px 32px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+  text-align: left;
+}
+
+.card-icon {
+  font-size: 34px;
+  flex-shrink: 0;
+  background: #ffcfcf;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-body h3 {
+  margin: 0 0 6px;
+  font-size: 16px;
+  color: #7a6a6a;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+
+.card-body p {
+  margin: 0;
+  font-size: 17px;
+  color: #2b2552;
+  font-weight: 600;
+}
+
+.card-body p.note {
+  font-size: 13px;
+  color: #999;
+  font-weight: 400;
+  margin-top: 4px;
+}
+
+.card-body a {
+  color: #2b2552;
+  text-decoration: none;
+  border-bottom: 2px solid #ffcfcf;
+}
+
+.footer-note {
+  margin-top: 36px;
+  font-size: 13px;
+  color: #b08888;
+}
+
+.legacy-package-page {
+  background-color: #ffcfcf;
+  min-height: 100vh;
+  padding: 20px 0 30px;
+}
+
+.legacy-package-page h1 {
+  margin-bottom: 20px;
+  color: #2b2552;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.legacy-package-page table,
+.legacy-package-page tr,
+.legacy-package-page th {
+  border: 4px solid brown;
+  border-radius: 8px;
+  padding-top: 30px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-bottom: 30px;
+}
+
+.legacy-package-page table {
+  margin: 0 auto 18px;
+  background-color: #ffcfcf;
+}
+
+.legacy-package-page input[type="submit"] {
+  cursor: pointer;
+}
+
+.login-page {
+  background-image: url("/images/gi.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-color: #ccc;
+  min-height: 100vh;
+  position: relative;
+  font-family: sans-serif;
+}
+
+.login-page .login-form {
+  width: 350px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: absolute;
+  color: rgb(58, 74, 99);
+}
+
+.login-page .login-form h1 {
+  color: rgb(69, 91, 126);
+  font-size: 40px;
+  text-align: center;
+  text-transform: uppercase;
+  margin: 40px 0;
+}
+
+.login-page .login-form p {
+  font-size: 20px;
+  margin: 15px 0;
+}
+
+.login-page .login-form input {
+  font-size: 16px;
+  width: 100%;
+  padding: 15px 10px;
+  border: 10px;
+  outline: 2px;
+  border-radius: 5px;
+}
+
+.login-page .login-form button {
+  font-size: 18px;
+  font-weight: bold;
+  margin: 20px 0;
+  padding: 10px 15px;
+  width: 50%;
+  border-radius: 5px;
+  border: 3px;
+  cursor: pointer;
+}
+
+.login-message {
+  margin-top: 8px;
+  font-weight: bold;
+}
+
+.html-forms-page {
+  padding: 18px;
+  background: white;
+  min-height: 100vh;
+}
+
+.html-forms-page input,
+.html-forms-page textarea,
+.html-forms-page select {
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: 4px solid #834132;
+  border-radius: 5px;
+  background-color: powderblue;
+  color: #bb226c;
+}
+
+.html-forms-page input:focus,
+.html-forms-page textarea:focus,
+.html-forms-page select:focus {
+  background-color: yellow;
+  border: 4px solid blue;
+  color: red;
+}
+
+.html-forms-page td {
+  color: green;
+  padding-right: 8px;
+}
+
+.html-forms-page table {
+  width: 100%;
+  max-width: 780px;
+}
+
+.form-result {
+  margin-top: 10px;
+  color: #2b2552;
+  font-weight: bold;
+}
+
+.link-page {
+  padding: 30px;
+  min-height: 100vh;
+  background: white;
+}

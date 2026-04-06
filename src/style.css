@@ -1,0 +1,174 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.home-page {
+  font-family: Georgia, "Times New Roman", serif;
+  overflow: hidden;
+  height: 100vh;
+  background-image: url("/images/BG.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.site-header {
+  background-color: #ffcfcf;
+  padding: 0 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 65px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.12);
+}
+
+.site-identity h1 {
+  margin: 0;
+}
+
+.site-identity h1 a {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #2b2552;
+}
+
+.site-identity img {
+  width: 42px;
+}
+
+.site-navigation ul {
+  list-style: none;
+  display: flex;
+  gap: 32px;
+  margin: 0;
+  padding: 0;
+}
+
+.site-navigation a {
+  text-decoration: none;
+  color: #2b2552;
+  font-size: 16px;
+  font-weight: bold;
+  padding-bottom: 3px;
+  border-bottom: 2px solid transparent;
+  transition: border-color 0.2s, color 0.2s;
+}
+
+.site-navigation a:hover {
+  color: #c5223a;
+  border-bottom-color: #c5223a;
+}
+
+.Body {
+  height: calc(100vh - 65px);
+  display: flex;
+  align-items: center;
+  padding-left: 80px;
+  overflow: hidden;
+}
+
+#MainDiv {
+  background-color: #ffcfcf;
+  border-radius: 18px;
+  padding: 28px 28px 24px;
+  width: 330px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.box-title {
+  font-size: 28px;
+  font-weight: bold;
+  color: #2b2552;
+  text-align: center;
+  margin-bottom: 20px;
+  line-height: 1.25;
+  font-style: italic;
+}
+
+.field-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.field-icon {
+  font-size: 10px;
+  color: #2b2552;
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
+.swap-row {
+  text-align: center;
+  font-size: 20px;
+  color: #2b2552;
+  margin: 2px 0 10px;
+  cursor: pointer;
+}
+
+select,
+input[type="date"] {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: none;
+  background-color: #6d7686;
+  color: white;
+  font-size: 14px;
+  font-family: Georgia, serif;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.field-row select {
+  margin-bottom: 0;
+}
+
+select:focus,
+input[type="date"]:focus {
+  outline: 2px solid #2b2552;
+}
+
+select option {
+  background-color: #444;
+}
+
+#Find {
+  width: 100%;
+  padding: 13px;
+  margin-top: 4px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2b2552;
+  color: white;
+  font-size: 16px;
+  font-family: Georgia, serif;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+#Find:hover {
+  background-color: #3d3570;
+}
+
+.form-error {
+  color: #c5223a;
+  font-size: 13px;
+  margin-bottom: 8px;
+}
+
+#Tt,
+#Nt,
+#It {
+  display: none;
+}
