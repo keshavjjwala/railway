@@ -3,12 +3,20 @@ import React, { useState } from "react";
 function Payment({ bookingData, onBackToHome }) {
   const [paymentType, setPaymentType] = useState("");
   const [confirmationMessage, setConfirmationMessage] = useState("");
+  const isMealOrder = bookingData?.type === "meal";
 
   const handleSubmit = (event) => {
     event.preventDefault();
 
     if (!paymentType) {
       setConfirmationMessage("Please choose a payment method.");
+      return;
+    }
+
+    if (isMealOrder) {
+      setConfirmationMessage(
+        `Meal order confirmed for ${bookingData?.mealName || "selected meal"}. Amount paid: Rs. ${bookingData?.amount || 0}.`
+      );
       return;
     }
 
@@ -20,25 +28,33 @@ function Payment({ bookingData, onBackToHome }) {
   return (
     <div className="payment-page">
       <div className="payment-card">
-        <h1>Payment Methods</h1>
+        <div className="payment-header">
+          <div>
+            <h1>Payment Methods</h1>
+            <p className="payment-subtitle">Review the trip details and choose how you want to pay.</p>
+          </div>
 
-        {bookingData ? (
+          <button className="back-home-btn back-home-btn-top" type="button" onClick={onBackToHome}>
+            Go to Home
+          </button>
+        </div>
+
+        {bookingData && !isMealOrder ? (
           <div className="booking-summary">
-            <p>
-              <strong>Train:</strong> {bookingData.trainName}
-            </p>
-            <p>
-              <strong>Route:</strong> {bookingData.from} to {bookingData.to}
-            </p>
-            <p>
-              <strong>Class:</strong> {bookingData.travelClass}
-            </p>
-            <p>
-              <strong>Seats:</strong> {bookingData.seats.join(", ")}
-            </p>
-            <p>
-              <strong>Total Fare:</strong> Rs. {bookingData.fare}
-            </p>
+            <p><strong>Train:</strong> {bookingData.trainName}</p>
+            <p><strong>Route:</strong> {bookingData.from} to {bookingData.to}</p>
+            <p><strong>Date:</strong> {bookingData.travelDate}</p>
+            <p><strong>Class:</strong> {bookingData.travelClass}</p>
+            <p><strong>Seats:</strong> {bookingData.seats.join(", ")}</p>
+            <p><strong>Total Fare:</strong> Rs. {bookingData.fare}</p>
+          </div>
+        ) : null}
+
+        {bookingData && isMealOrder ? (
+          <div className="booking-summary">
+            <p><strong>Category:</strong> {bookingData.mealTime}</p>
+            <p><strong>Meal:</strong> {bookingData.mealName}</p>
+            <p><strong>Total Amount:</strong> Rs. {bookingData.amount}</p>
           </div>
         ) : null}
 
@@ -99,16 +115,18 @@ function Payment({ bookingData, onBackToHome }) {
             </div>
           </label>
 
-          <button type="submit" name="p" value="proceed">
-            Proceed to Pay
-          </button>
+          <div className="payment-actions">
+            <button type="submit" name="p" value="proceed">
+              Proceed to Pay
+            </button>
+
+            {/* <button className="back-home-btn" type="button" onClick={onBackToHome}>
+              Go to Home
+            </button> */}
+          </div>
         </form>
 
         {confirmationMessage ? <p className="confirmation-text">{confirmationMessage}</p> : null}
-
-        <button className="back-home-btn" type="button" onClick={onBackToHome}>
-          Go to Home
-        </button>
       </div>
     </div>
   );

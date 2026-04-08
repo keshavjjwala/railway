@@ -28,13 +28,12 @@ function BookingForm({ onFindTrains }) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    // Basic beginner-friendly validation for required fields.
-    if (!formData.from || !formData.to || !formData.travelDate || !formData.travelClass) {
-      setErrorMessage("Please select From, To, Date and Class before searching.");
+    if (!formData.travelDate) {
+      setErrorMessage("Please select a journey date before searching.");
       return;
     }
 
-    if (formData.from === formData.to) {
+    if (formData.from && formData.to && formData.from === formData.to) {
       setErrorMessage("From and To station cannot be the same.");
       return;
     }

@@ -224,49 +224,71 @@
 }
 
 .payment-page {
-  background-color: #fff5f0;
+  background: linear-gradient(180deg, #fff8f4 0%, #fff1e8 100%);
   font-family: Georgia, "Times New Roman", serif;
   min-height: 100vh;
+  padding: 28px 18px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
 
 .payment-card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 40px 50px;
-  width: 420px;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  background: rgba(255, 255, 255, 0.96);
+  border-radius: 22px;
+  padding: 34px 36px 30px;
+  width: min(100%, 560px);
+  box-shadow: 0 20px 50px rgba(43, 37, 82, 0.12);
+  border: 1px solid rgba(43, 37, 82, 0.08);
+}
+
+.payment-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  align-items: flex-start;
+  margin-bottom: 18px;
 }
 
 .payment-card h1 {
-  font-size: 28px;
+  font-size: 30px;
   color: #2b2552;
-  margin-bottom: 20px;
-  border-bottom: 3px solid #ddffb2;
-  padding-bottom: 14px;
+  margin-bottom: 8px;
+  border-bottom: 3px solid #d9ffa9;
+  padding-bottom: 12px;
+}
+
+.payment-subtitle {
+  color: #7b748d;
+  font-size: 14px;
+  line-height: 1.4;
+  max-width: 360px;
 }
 
 .booking-summary {
-  background-color: #fff5f0;
-  border-radius: 8px;
-  padding: 10px 12px;
-  margin-bottom: 12px;
+  background: linear-gradient(180deg, #fffaf6 0%, #fff3ed 100%);
+  border-radius: 14px;
+  padding: 14px 16px;
+  margin-bottom: 16px;
   border: 1px solid #ece2e2;
 }
 
 .booking-summary p {
-  margin-bottom: 4px;
-  font-size: 13px;
+  margin-bottom: 6px;
+  font-size: 14px;
+  color: #423b63;
+}
+
+.booking-summary p:last-child {
+  margin-bottom: 0;
 }
 
 .option {
   display: flex;
   align-items: center;
   gap: 14px;
-  padding: 14px 16px;
-  border-radius: 10px;
+  padding: 16px 18px;
+  border-radius: 14px;
   margin-bottom: 12px;
   border: 2px solid #e8e8e8;
   cursor: pointer;
@@ -295,9 +317,8 @@
 }
 
 .payment-card button[type="submit"] {
-  width: 100%;
+  flex: 1;
   padding: 14px;
-  margin-top: 10px;
   background-color: #2b2552;
   color: white;
   border: none;
@@ -313,11 +334,57 @@
   background-color: #3d3570;
 }
 
+.payment-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 14px;
+}
+
+.payment-actions .back-home-btn {
+  margin-bottom: 0;
+  padding: 14px 18px;
+  min-width: 140px;
+}
+
 .confirmation-text {
-  margin-top: 12px;
+  margin-top: 14px;
   color: #2b2552;
   font-weight: bold;
-  font-size: 13px;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.back-home-btn-top {
+  white-space: nowrap;
+  align-self: flex-start;
+  margin-bottom: 0;
+}
+
+@media (max-width: 640px) {
+  .payment-page {
+    padding: 16px 12px;
+  }
+
+  .payment-card {
+    padding: 24px 20px 22px;
+    border-radius: 18px;
+  }
+
+  .payment-header {
+    flex-direction: column;
+  }
+
+  .payment-actions {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .payment-actions .back-home-btn,
+  .back-home-btn-top,
+  .payment-card button[type="submit"] {
+    width: 100%;
+  }
 }
 
 .meals-page {
@@ -711,60 +778,153 @@
 }
 
 .login-page {
-  background-image: url("/images/gi.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-color: #ccc;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(197, 34, 58, 0.2), transparent 32%),
+    radial-gradient(circle at 80% 80%, rgba(43, 37, 82, 0.28), transparent 36%),
+    linear-gradient(135deg, #fff7ef 0%, #ffe0d4 48%, #ffd7ee 100%);
   min-height: 100vh;
   position: relative;
-  font-family: sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+.login-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    45deg,
+    rgba(255, 255, 255, 0.3) 0,
+    rgba(255, 255, 255, 0.3) 10px,
+    rgba(255, 255, 255, 0.15) 10px,
+    rgba(255, 255, 255, 0.15) 20px
+  );
 }
 
 .login-page .login-form {
-  width: 350px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  position: absolute;
-  color: rgb(58, 74, 99);
+  width: min(100%, 420px);
+  position: relative;
+  z-index: 1;
+  color: #2b2552;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 18px;
+  padding: 28px 26px 24px;
+  box-shadow: 0 18px 42px rgba(43, 37, 82, 0.16);
+  border: 1px solid rgba(43, 37, 82, 0.1);
 }
 
 .login-page .login-form h1 {
-  color: rgb(69, 91, 126);
-  font-size: 40px;
-  text-align: center;
-  text-transform: uppercase;
-  margin: 40px 0;
+  color: #2b2552;
+  font-size: 34px;
+  margin: 0 0 8px;
+  text-align: left;
+  border-bottom: 3px solid #ffcfcf;
+  padding-bottom: 10px;
 }
 
-.login-page .login-form p {
-  font-size: 20px;
-  margin: 15px 0;
+.login-page .login-subtitle {
+  margin: 0 0 18px;
+  font-size: 14px;
+  color: #6d5f78;
+}
+
+.login-page .login-form label {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .login-page .login-form input {
   font-size: 16px;
   width: 100%;
-  padding: 15px 10px;
-  border: 10px;
-  outline: 2px;
-  border-radius: 5px;
+  padding: 12px 12px;
+  border: 1px solid #d8d2e8;
+  outline: none;
+  border-radius: 8px;
+  margin-bottom: 14px;
+  color: #2f2a42;
+}
+
+.login-page .login-form input:focus {
+  border-color: #2b2552;
+  box-shadow: 0 0 0 3px rgba(43, 37, 82, 0.12);
+}
+
+.password-field {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.password-field input {
+  margin-bottom: 14px;
+}
+
+.toggle-password {
+  background: #f2eeff;
+  color: #2b2552;
+  border: 1px solid #cbc4e5;
+  border-radius: 8px;
+  padding: 11px 12px;
+  font-size: 8px;
+  cursor: pointer;
+  min-width: 68px;
 }
 
 .login-page .login-form button {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: bold;
-  margin: 20px 0;
-  padding: 10px 15px;
-  width: 50%;
-  border-radius: 5px;
-  border: 3px;
+  margin: 8px 0 0;
+  padding: 12px 15px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
   cursor: pointer;
+  background-color: #2b2552;
+  color: white;
+  letter-spacing: 0.04em;
+}
+
+.login-page .login-form button:hover {
+  background-color: #3d3570;
 }
 
 .login-message {
-  margin-top: 8px;
+  margin-top: 12px;
   font-weight: bold;
+  font-size: 14px;
+  line-height: 1.4;
+}
+
+.login-error {
+  color: #a5273f;
+}
+
+.login-success {
+  color: #275a31;
+}
+
+@media (max-width: 520px) {
+  .login-page {
+    padding: 14px;
+  }
+
+  .login-page .login-form {
+    padding: 22px 16px 18px;
+  }
+
+  .password-field {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .toggle-password {
+    width: 100%;
+    margin-bottom: 14px;
+  }
 }
 
 .html-forms-page {

@@ -73,6 +73,17 @@ function Navbar({ onNavigate }) {
               Contact US
             </a>
           </li>
+          <li>
+            <a
+              href="#login"
+              onClick={(event) => {
+                event.preventDefault();
+                onNavigate("login");
+              }}
+            >
+              Login
+            </a>
+          </li>
         </ul>
       </nav>
     </header>

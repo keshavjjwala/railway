@@ -149,6 +149,11 @@ function App() {
     navigateToPage("payment");
   };
 
+  const handleMealOrder = (mealData) => {
+    setSelectedBooking(mealData);
+    navigateToPage("payment");
+  };
+
   let pageContent = null;
 
   if (currentPage === "home") {
@@ -186,7 +191,7 @@ function App() {
   }
 
   if (currentPage === "meals") {
-    pageContent = <MealsPage />;
+    pageContent = <MealsPage onBookNow={handleMealOrder} />;
   }
 
   if (currentPage === "holidayPackages") {

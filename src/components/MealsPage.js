@@ -39,7 +39,7 @@ const dinnerItems = [
   ["10.", "Manchurian Fried Rice", "70"]
 ];
 
-function MealsTable({ title, items }) {
+function MealsTable({ title, items, onOrderNow }) {
   return (
     <>
       <h1>{title}</h1>
@@ -58,7 +58,18 @@ function MealsTable({ title, items }) {
               <td>{item[1]}</td>
               <td className="price-cell">
                 <span>Rs. {item[2]}</span>
-                <button className="btn-order" type="button">
+                <button
+                  className="btn-order"
+                  type="button"
+                  onClick={() =>
+                    onOrderNow({
+                      type: "meal",
+                      mealTime: title,
+                      mealName: item[1],
+                      amount: Number(item[2])
+                    })
+                  }
+                >
                   Order Now
                 </button>
               </td>
@@ -70,14 +81,14 @@ function MealsTable({ title, items }) {
   );
 }
 
-function MealsPage() {
+function MealsPage({ onBookNow }) {
   return (
     <div className="meals-page">
-      <MealsTable title="Breakfast" items={breakfastItems} />
+      <MealsTable title="Breakfast" items={breakfastItems} onOrderNow={onBookNow} />
       <hr className="section-divider" />
-      <MealsTable title="Lunch" items={lunchItems} />
+      <MealsTable title="Lunch" items={lunchItems} onOrderNow={onBookNow} />
       <hr className="section-divider" />
-      <MealsTable title="Dinner" items={dinnerItems} />
+      <MealsTable title="Dinner" items={dinnerItems} onOrderNow={onBookNow} />
     </div>
   );
 }
